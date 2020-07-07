@@ -1,0 +1,85 @@
+{
+  "project_info": {
+    "project_number": "122378631034",
+    "firebase_url": "https://test-version-96ec9.firebaseio.com",
+    "project_id": "test-version-96ec9",
+    "storage_bucket": "test-version-96ec9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:122378631034:android:da6837f7fe35e7973648c3",
+        "android_client_info": {
+          "package_name": "com.example.loginapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "122378631034-46v5bmn9vic0ognau250eq5s9s3jsci3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.loginapp",
+            "certificate_hash": "77814505acd0d9bfdf294b7b02ca7fa427754a3b"
+          }
+        },
+        {
+          "client_id": "122378631034-5datliuaqjd7rgca1801nhkfumfrkmqf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyADtBg6SL9KXC01s0AFlXjRkOfG4jI7NB0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "122378631034-5datliuaqjd7rgca1801nhkfumfrkmqf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:122378631034:android:29d23ae8f827d7ba3648c3",
+        "android_client_info": {
+          "package_name": "com.example.mytraveldiary"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "122378631034-qh1ea8cd8pitsrt07t5u435f6tpvqtre.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mytraveldiary",
+            "certificate_hash": "77814505acd0d9bfdf294b7b02ca7fa427754a3b"
+          }
+        },
+        {
+          "client_id": "122378631034-5datliuaqjd7rgca1801nhkfumfrkmqf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyADtBg6SL9KXC01s0AFlXjRkOfG4jI7NB0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "122378631034-5datliuaqjd7rgca1801nhkfumfrkmqf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
