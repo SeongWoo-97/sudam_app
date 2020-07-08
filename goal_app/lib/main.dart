@@ -3,6 +3,7 @@ import 'Page/FirstPage.dart';
 import 'Page/FourPage.dart';
 import 'Page/SecondPage.dart';
 import 'Page/ThirdPage.dart';
+import 'module/goal.dart';
 
 void main() => runApp(MyApp());
 
@@ -23,23 +24,10 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  int _index = 0;
+  var _index = 0;
   final List<String> pageName = ["목표 추가하기","리스트 보기","달력 보기","설정"];
-//  static const TextStyle optionStyle =
-//      TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black);
-  PageController _pageController =
-      PageController(initialPage: 0, keepPage: true);
 
   void _onItemTapped(int index) {
-    setState(() {
-      _index = index;
-      // 어떻게 페이지 이동에 애니메이션 없이 바로 이동
-      _pageController.animateToPage(index,
-          duration: Duration(microseconds: 1), curve: Curves.linear);
-    });
-  }
-
-  void _onPageChanged(int index) {
     setState(() {
       _index = index;
     });
@@ -48,17 +36,10 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(pageName[_index]),
-      ),
-      body: PageView(
-        controller: _pageController,
-        onPageChanged: _onPageChanged,
+      body: IndexedStack(
+        index: _index,
         children: <Widget>[
-          FirstPage(),
-          SecondPage(),
-          ThirdPage(),
-          FourPage(),
+          FirstPage(),SecondPage(),ThirdPage(),FourPage()
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
