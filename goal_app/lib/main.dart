@@ -1,19 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'Page/FirstPage.dart';
-import 'Page/FourPage.dart';
+import 'NonePage/FourPage.dart';
 import 'Page/SecondPage.dart';
-import 'Page/ThirdPage.dart';
+import 'NonePage/ThirdPage.dart';
 import 'module/goal.dart';
+import 'module/index.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Goal App',
-      home: MainPage(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => Index()),
+        ChangeNotifierProvider(create: (_) => Goal('None')),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Todo App',
+        home: MainPage(),
+      ),
     );
   }
 }
@@ -24,43 +32,34 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  var _index = 0;
-  final List<String> pageName = ["목표 추가하기","리스트 보기","달력 보기","설정"];
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _index = index;
-    });
-  }
+  var currentTab = [FirstPage(), SecondPage(), ThirdPage(), FourPage()];
 
   @override
   Widget build(BuildContext context) {
+    Index currentIndex = Provider.of<Index>(context);
     return Scaffold(
-      body: IndexedStack(
-        index: _index,
-        children: <Widget>[
-          FirstPage(),SecondPage(),ThirdPage(),FourPage()
-        ],
-      ),
+      body: currentTab[currentIndex.currentIndex],
       bottomNavigationBar: BottomNavigationBar(
+        currentIndex: currentIndex.currentIndex,
+        onTap: (index) {
+          currentIndex.currentIndex = index;
+        },
         type: BottomNavigationBarType.fixed,
         // 하단바 아이콘 고정
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-              icon: Icon(Icons.add_circle), title: Text('목표 추가하기')),
+              icon: Icon(Icons.add_circle), title: Text('Todo Create')),
           BottomNavigationBarItem(
-              icon: Icon(Icons.format_list_bulleted), title: Text('리스트 보기')),
+              icon: Icon(Icons.format_list_bulleted), title: Text('Todo List')),
           BottomNavigationBarItem(
-              icon: Icon(Icons.calendar_today), title: Text('달력 보기')),
+              icon: Icon(Icons.calendar_today), title: Text('none')),
           BottomNavigationBarItem(
-              icon: Icon(Icons.settings), title: Text('설정')),
+              icon: Icon(Icons.settings), title: Text('none')),
         ],
-        currentIndex: _index,
         selectedItemColor: Colors.black87,
         // 선택된 index 색깔
         unselectedItemColor: Colors.black54,
         // 선택안된 index 색깔
-        onTap: _onItemTapped, //
       ),
     );
   }
